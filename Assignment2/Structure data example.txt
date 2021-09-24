@@ -1,0 +1,29 @@
+Purpose
+To be used as a readme.md template for newly created repositories
+
+Template
+
+Project Name
+The Intro to your repo goes here
+
+build badge(s)
+
+Tech Stack
+Frameworks/major tech used goes here
+
+How to use this
+Installation (suggested section)
+Usage (suggested section)
+
+How to contribute to this repo
+
+Development Setup
+Everything that's needed to get up and running locally goes here
+
+Deployment Notes
+[Everything you want to highlight regarding your ci/cd pipeline goes here]
+
+Additional contribution notes
+additional links to roadmap, architecture diagrams, feedback forms.. etc goes here
+
+Tags
