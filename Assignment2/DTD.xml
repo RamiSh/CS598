@@ -40,8 +40,8 @@
 
 <!-- An element defines the "Tags" section, aims to show the different words that used to tag the project. -->
 <!ELEMENT tagline (ti+)>
-<!-- A header attribute contains char data and defaults to "Tags"-->
-<!ATTLIST tagline header CDATA "Tags">
+<!-- A header attribute contains char data and defaults to "Tags" and fixed-->
+<!ATTLIST tagline header CDATA #FIXED "Tags">
 <!-- An element defines the tag -->
 <!ELEMENT ti (#PCDATA)>
 ]>
