@@ -1,29 +1,46 @@
-Purpose
-To be used as a readme.md template for newly created repositories
-
-Template
+Team Name
+Team Jarvis
 
 Project Name
-The Intro to your repo goes here
+Pull Request Notifier
+
+Project Description
+While teams are busy developing new features and tackling tech debts it becomes challenging to keep track of all open PRs. A simple visual reminder has proven to be effective.
+A few things this helps with:
+- Reminds the team about what is awaiting review which will reduce the chances for others to be blocked
+- Aggregates all links to all PRs in one place
+- Gives sense of urgency by showing the time since the PR has been issued
+- Pushes the pending PRs to the top of the designated notification channel
 
 build badge(s)
+(http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_apis/build/status/PullRequestNotifer/PullRequestNotifier?branchName=master)](http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_build/latest?definitionId=787)
+(http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_apis/build/status/PullRequestNotifer/PullRequestNotifier?branchName=Develop)](http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_build/latest?definitionId=787)
 
 Tech Stack
-Frameworks/major tech used goes here
+- AWS Lambda
+- Netcore 3.1
+- Terraform aws provider 2.57.0 (to support core 3.1)
 
 How to use this
-Installation (suggested section)
-Usage (suggested section)
+- Installation
+This runs as a serverless lambda, no installation is needed.
+- Usage
+Add you team name to the SubscribedTeams. The team name is case insensitive, and is not used to look up any of the PRs.
+Add a new section for your team with (WebhookUrl, IncludeDraftPullRequests, and RepositoriesToProjectsMap)
+The system will push the pending PRs to the top of the designated notification teams channel
+This runs twice a day at 9am and 3pm central time Monday-Friday. There is a cloudwatch event for each time.
 
-How to contribute to this repo
+Development
+- Development Setup
+All what's needed to run this locally is to have visual studio installed with .netcore 3.1. Vs Code also works in case you a light-weight approach is preferred.
+- Deployment Notes
+To test your changes, you can run add break points to force the run time to stop to debug the changes. However, this will eventually send notifications out if ran to completion. Better to test with a sample list of teams.
 
-Development Setup
-Everything that's needed to get up and running locally goes here
-
-Deployment Notes
-[Everything you want to highlight regarding your ci/cd pipeline goes here]
-
-Additional contribution notes
-additional links to roadmap, architecture diagrams, feedback forms.. etc goes here
+Contribution
+- How to contribute to this repo
+We welcome contributions. Send us a PR!
+- Additional contribution notes
+No additional contribution notes for this project.
 
 Tags
+pr,c#,.netcore3.1,terraform,serverless,aws,lambda,teams
