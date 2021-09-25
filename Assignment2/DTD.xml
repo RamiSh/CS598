@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!-- Document Type Definition for Readme files-->
+<!DOCTYPE readme [
+<!ELEMENT readme (section*, buildbadge, techstack, howto,dev,contribute,tagline)>
+<!-- A generic element used to define a textual section with a header-->
+<!ELEMENT section (#PCDATA)>
+<!-- A header attribute  contains char data and is required-->
+<!ATTLIST section header CDATA #REQUIRED>
+
+<!-- An element defines Build Badge section, aims to show the status of continuous builds for the project.
+ The element can have one or more children to represent the different build branches -->
+<!ELEMENT buildbadge (bbi+)>
+<!-- A header attribute contains char data and defaults to "Build Badge(s)"-->
+<!ATTLIST buildbadge header CDATA "Build Badge(s)">
+<!-- An element defines the build badge item -->
+<!ELEMENT bbi (#PCDATA)>
+
+<!-- An element defines Tech Stack section, aims to show the different technologies used in the project.
+ The element can have one or more children to represent the different technologies -->
+<!ELEMENT techstack (tsi+)>
+<!-- A header attribute contains char data and defaults to "Tech Stack"-->
+<!ATTLIST techstack header CDATA "Tech Stack">
+<!-- An element defines the tech stack item -->
+<!ELEMENT tsi (#PCDATA)>
+
+<!-- An element defines the "how to" section, aims to show only two sections that describe the usage of the project-->
+<!ELEMENT howto (section,section)>
+<!-- A header attribute contains char data and defaults to "How to use this"-->
+<!ATTLIST howto header CDATA "How to use this">
+
+<!-- An element defines the "development" section, aims to show only two sections that describe the development aspects of the project-->
+<!ELEMENT dev (section,section)>
+<!-- A header attribute contains char data and defaults to "Development"-->
+<!ATTLIST dev header CDATA "Development">
+
+<!-- An element defines the "contribute" section, aims to show only two sections that describe how to contribute to the project-->
+<!ELEMENT contribute (section,section)>
+<!-- A header attribute contains char data and defaults to "Contribution"-->
+<!ATTLIST contribute header CDATA "Contribution">
+
+<!-- An element defines the "Tags" section, aims to show the different words that used to tag the project. -->
+<!ELEMENT tagline (ti+)>
+<!-- A header attribute contains char data and defaults to "Tags"-->
+<!ATTLIST tagline header CDATA "Tags">
+<!-- An element defines the tag -->
+<!ELEMENT ti (#PCDATA)>
+]>
+<readme>
+    <section header="Team Name">Team Jarvis</section>
+    <section header="Project Name">Pull Request Notifier</section>
+    <section header="Project Description">
+    While teams are busy developing new features and tackling tech debts it becomes challenging to keep track of all open PRs. A simple visual reminder has proven to be effective.
+    A few things this helps with:
+    - Reminds the team about what is awaiting review which will reduce the chances for others to be blocked
+    - Aggregates all links to all PRs in one place
+    - Gives sense of urgency by showing the time since the PR has been issued
+    - Pushes the pending PRs to the top of the designated notification channel
+    </section>
+    <buildbadge>
+        <bbi>(http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_apis/build/status/PullRequestNotifer/PullRequestNotifier?branchName=master)](http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_build/latest?definitionId=787)</bbi>
+        <bbi>(http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_apis/build/status/PullRequestNotifer/PullRequestNotifier?branchName=Develop)](http://prd-tfsfpv01:8080/tfs/Collection01/IMO/_build/latest?definitionId=787)</bbi>
+    </buildbadge>
+    <techstack>
+        <tsi>AWS Lambda</tsi>
+        <tsi>Netcore 3.1</tsi>
+        <tsi>Terraform aws provider 2.57.0 (to support core 3.1)</tsi>
+    </techstack>
+    <howto>
+        <section header="Installation">
+        This runs as a serverless lambda, no installation is needed.
+        </section>
+        <section header="Usage">
+        Add you team name to the SubscribedTeams. The team name is case insensitive, and is not used to look up any of the PRs.
+        Add a new section for your team with (WebhookUrl, IncludeDraftPullRequests, and RepositoriesToProjectsMap)
+        The system will push the pending PRs to the top of the designated notification teams channel
+        This runs twice a day at 9am and 3pm central time Monday-Friday. There is a cloudwatch event for each time.
+        </section>
+    </howto>
+    <dev>
+        <section header="Development Setup">
+        All what's needed to run this locally is to have visual studio installed with .netcore 3.1. Vs Code also works in case you a light-weight approach is preferred.
+        </section>
+        <section header="Deployment Notes">
+        To test your changes, you can run add break points to force the run time to stop to debug the changes. However, this will eventually send notifications out if ran to completion. Better to test with a sample list of teams.
+        </section>
+    </dev>
+    <contribute>
+        <section header="How to contribute to this repo">We welcome contributions. Send us a PR!</section>
+        <section header="Additional contribution notes">Team Jarvis</section>
+    </contribute>
+    <tagline>
+        <ti>pr</ti>
+        <ti>c#</ti>
+        <ti>.netcore3.1</ti>
+        <ti>terraform</ti>
+        <ti>serverless</ti>
+        <ti>aws</ti>
+        <ti>lambda</ti>
+        <ti>teams</ti>
+    </tagline>
+</readme>
