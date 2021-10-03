@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!-- Document Type Definition for Readme files-->
+<!-- A README is a text file that introduces and explains a project and a project source code repository. It contains information that is commonly required to understand what the project is about -->
 <!DOCTYPE readme [
 <!ELEMENT readme (section*, buildbadge, techstack, howto,dev,contribute,tagline)>
 <!-- A generic element used to define a textual section with a header-->
