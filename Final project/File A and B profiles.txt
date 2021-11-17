@@ -1,0 +1,17 @@
+File A:
+    MD5 hash: D30CBA6B00308A87FA3A384799C5FAF7
+            
+The file A format is XML and without an internal DTD. The XML appears to be valid and contains consumer complaints data, it has 8 complaints to be exact identified with 8 unique ids. The file has one main element "consumerComplaints" which doesn't have any attributes. There are various child elements that describe the consumer complaint in greater details. Some of these elements have one or more attributes that explains the characteristics of the element. Some of the common child elements between consumer Complaints are: 
+    - event: describes the complaint's journey to the company under questioning.
+    - Product: the product name that the consumer is complaining about 
+    - issue: has "subissue" element that only appeared twice which indicate that the xml file allows users to further narrow down their issue into more specific categories
+    - Submitted: looks like there are at least two known ways to submit a complaint (web or Referral)
+and more 
+However, there is one element "consumerNarrative" only appeared in some of the complaints which indicates that it's an optional input value. Also noticed that the last complaint has the elements in different order (e.g.: one event element appeared at the start of the complaint while another one appeared just about the end of it)
+
+File B:
+    MD5 has: ED0464961E86112C12E86875C9461F47
+The file B format is XML with minimal internal DTD. The XML appears to be valid on its. However the internal DTD is missing a lot of element definitions. The use of &redaction entity is new and didn't exist in file A. The XML contains consumer complaints data, it has 8 complaints to be exact identified with 8 unique ids. Some of the observations compared to the content of File A. 
+    - the "Complaint" element now has the "submissionType" type as an attribute. Possible values for "submissionType" now are {Referral, Phone, Web}
+    - the element "timely" now has possible values of {yes, no} instead of {Y, N}
+    - manual edits seem to be possible, line 170 has a comment about manual edit
