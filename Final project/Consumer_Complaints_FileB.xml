@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Document Type Definition for consumerComplaints xml files-->
 <!DOCTYPE consumerComplaints [
 <!ENTITY redaction "XXXX">
+<!ELEMENT consumerComplaints (complaint*)>
+
+<!-- An element defines the compaint with its different sub elements-->
+<!ELEMENT complaint ((event|company|submitted)*, (product|issue|event)*, consumerNarrative?, company?, submitted?, response)>
+<!-- The id attribute contains char data and is required-->
+<!ATTLIST complaint id CDATA #REQUIRED>
+<!-- The submissionType attribute contains char data and is optional-->
+<!ATTLIST complaint submissionType CDATA #IMPLIED>
+
+<!-- An element defines the event section
+The element has type and date as required attributes -->
+<!ELEMENT event (#PCDATA)>
+<!ATTLIST event type CDATA #REQUIRED>
+<!ATTLIST event date CDATA #REQUIRED>
+
+<!-- An element defines the product section
+The element has productType required and subproduct optional elements -->
+<!ELEMENT product (productType, subproduct?)>
+<!ELEMENT productType (#PCDATA)>
+<!ELEMENT subproduct (#PCDATA)>
+
+<!-- An element defines the issue section
+The element has issueType required and subissue optional elements -->
+<!ELEMENT issue (issueType,subissue?)>
+<!ELEMENT issueType (#PCDATA)>
+<!ELEMENT subissue (#PCDATA)>
+
+<!-- An element defines the consumerNarrative section -->
+<!ELEMENT consumerNarrative (#PCDATA)>
+
+<!-- An element defines the company section
+The element has companyName, companyState, companyZip optional attributes -->
+<!ELEMENT company (companyName, companyState, companyZip)>
+<!ELEMENT companyName (#PCDATA)>
+<!ELEMENT companyState (#PCDATA)>
+<!ELEMENT companyZip (#PCDATA)>
+
+<!-- An element defines the submitted section -->
+<!ELEMENT submitted (#PCDATA)>
+
+<!-- An element defines the submitted section
+The element has timely, consumerDisputed as required attributes
+The element has publicResponse, responseType as optional elements
+-->
+<!ELEMENT response ( publicResponse?, responseType?)>
+<!ATTLIST response timely CDATA #IMPLIED>
+<!ATTLIST response consumerDisputed CDATA #REQUIRED>
+<!ELEMENT responseType (#PCDATA)>
+<!ELEMENT publicResponse (#PCDATA)>
 ]>
 <consumerComplaints>
     <complaint id="759222" submissionType="Referral">
