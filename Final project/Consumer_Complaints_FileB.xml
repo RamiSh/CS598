@@ -47,7 +47,7 @@ The element has timely, consumerDisputed as required attributes
 The element has publicResponse, responseType as optional elements
 -->
 <!ELEMENT response ( publicResponse?, responseType?)>
-<!ATTLIST response timely CDATA #IMPLIED>
+<!ATTLIST response timely CDATA "yes">
 <!ATTLIST response consumerDisputed CDATA #REQUIRED>
 <!ELEMENT responseType (#PCDATA)>
 <!ELEMENT publicResponse (#PCDATA)>
