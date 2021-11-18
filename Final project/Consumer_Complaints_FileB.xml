@@ -9,7 +9,7 @@
 <!-- The id attribute contains char data and is required-->
 <!ATTLIST complaint id CDATA #REQUIRED>
 <!-- The submissionType attribute contains char data and is optional-->
-<!ATTLIST complaint submissionType CDATA #IMPLIED>
+<!ATTLIST complaint submissionType CDATA "web">
 
 <!-- An element defines the event section
 The element has type and date as required attributes -->
